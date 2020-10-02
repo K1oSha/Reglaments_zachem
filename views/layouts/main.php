@@ -13,7 +13,7 @@ use yii\bootstrap\NavBar;
         <? $this->beginBody();?><!--  Тригер для бутстрапа -->
         <?
            NavBar::begin([
-                   'brandLabel'=>'Finance',
+                   'brandLabel'=>'Регламент',
                     'brandUrl'=> Yii::$app->homeUrl,
                     'options'=>
                     [

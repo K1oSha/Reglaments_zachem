@@ -1,7 +1,7 @@
 <?php
 
    $config =[
-    'id'=>'finance',
+    'id'=>'reglament',
     'basePath'=> realpath(__DIR__.'/../'),
        'bootstrap'=>['debug'],
       'components'=>[
