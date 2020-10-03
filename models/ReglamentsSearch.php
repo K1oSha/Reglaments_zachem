@@ -17,8 +17,8 @@ class ReglamentsSearch extends Reglaments
     public function rules()
     {
         return [
-            [['id', 'state', 'state_upr', 'state_gov', 'state_expert', 'state_prok', 'state_economics'], 'integer'],
-            [['message', 'comment_upr', 'comment_gov', 'comment_expert', 'comment_prok', 'comment_economics'], 'safe'],
+            [['id', 'state', 'state_expert', 'state_prok'], 'integer'],
+            [['message',   'comment_expert', 'comment_prok'], 'safe'],
         ];
     }
 
@@ -80,19 +80,19 @@ class ReglamentsSearch extends Reglaments
         $query->andFilterWhere([
             'id' => $this->id,
             'state' => $this->state,
-            'state_upr' => $this->state_upr,
-            'state_gov' => $this->state_gov,
+//            'state_upr' => $this->state_upr,
+//            'state_gov' => $this->state_gov,
             'state_expert' => $this->state_expert,
             'state_prok' => $this->state_prok,
-            'state_economics' => $this->state_economics,
+//            'state_economics' => $this->state_economics,
         ]);
 
         $query->andFilterWhere(['like', 'message', $this->message])
-            ->andFilterWhere(['like', 'comment_upr', $this->comment_upr])
-            ->andFilterWhere(['like', 'comment_gov', $this->comment_gov])
+//            ->andFilterWhere(['like', 'comment_upr', $this->comment_upr])
+//            ->andFilterWhere(['like', 'comment_gov', $this->comment_gov])
             ->andFilterWhere(['like', 'comment_expert', $this->comment_expert])
-            ->andFilterWhere(['like', 'comment_prok', $this->comment_prok])
-            ->andFilterWhere(['like', 'comment_economics', $this->comment_economics]);
+            ->andFilterWhere(['like', 'comment_prok', $this->comment_prok]);
+//            ->andFilterWhere(['like', 'comment_economics', $this->comment_economics]);
 
         return $dataProvider;
     }

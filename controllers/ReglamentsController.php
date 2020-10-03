@@ -2,6 +2,7 @@
 
 namespace app\controllers;
 
+use app\models\Changes;
 use Yii;
 use app\models\Reglaments;
 use app\models\ReglamentsSearch;
@@ -81,11 +82,9 @@ class ReglamentsController extends Controller
     {
         $model = new Reglaments();
         $model->state=0;
-        $model->state_upr=0;
-        $model->state_gov=0;
         $model->state_expert=0;
         $model->state_prok=0;
-        $model->state_economics=0;
+        $model->date=date('yy-m-d');
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
@@ -107,18 +106,107 @@ class ReglamentsController extends Controller
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
+//    'f11_comment_proc'=> $this->text(),
+//'f12_comment_proc'=> $this->text(),
+//'f131_comment_proc'=> $this->text(),
+//'f132_comment_proc'=>$this->text(),
+//'f21_comment_proc'=> $this->text(),
+//'f22_comment_proc'=> $this->text(),
     public function actionUpdate($id)
     {
+        $roles = Yii::$app->authManager->getRolesByUser(Yii::$app->user->getId());
+        $date=date('d-m-yy');
         $model = $this->findModel($id);
 
+
+
+        $model_last = $this->findModel($id);
         if ($model->load(Yii::$app->request->post()) ) {
-            if($model->state_upr==1 && $model->state_gov==1 && $model->state_expert==1
-                && $model->state_prok==1 && $model->state_economics==1 )
+            if( $model->state_expert==1
+                && $model->state_prok==1 )
             {
                 $model->state=1;
             }else{
                 $model->state=0;
             }
+
+            if(array_key_exists('secretary',$roles)) {
+                $model_changes = new Changes();
+                $model_changes->message=$model_last->message;
+                $model_changes->id_reglament = $model_last->id;
+                $model_changes->date = $model_last->date;
+                $model_changes->f11 = $model_last->f11;
+                $model_changes->f12 = $model_last->f12;
+                $model_changes->f131 = $model_last->f131;
+                $model_changes->f132 = $model_last->f132;
+                $model_changes->f21 = $model_last->f21;
+                $model_changes->f22 = $model_last->f22;
+
+                $model_changes->f11_comment_proc = $model_last->f11_comment_proc;
+                $model_changes->f12_comment_proc = $model_last->f12_comment_proc;
+                $model_changes->f131_comment_proc = $model_last->f131_comment_proc;
+                $model_changes->f132_comment_proc = $model_last->f132_comment_proc;
+                $model_changes->f21_comment_proc = $model_last->f21_comment_proc;
+                $model_changes->f22_comment_proc = $model_last->f22_comment_proc;
+
+                if($model->f11!=$model_last->f11)
+                {
+                    $model->f11_comment_proc = null;
+                }
+                if($model->f12!=$model_last->f12)
+                {
+                    $model->f12_comment_proc = null;
+                }
+                if($model->f131!=$model_last->f131)
+                {
+                    $model->f131_comment_proc = null;
+                }
+                if($model->f132!=$model_last->f132)
+                {
+                    $model->f132_comment_proc = null;
+                }
+                if($model->f21!=$model_last->f21)
+                {
+                    $model->f21_comment_proc = null;
+                }
+                if($model->f22!=$model_last->f22)
+                {
+                    $model->f22_comment_proc = null;
+                }
+                $model->state=0;
+                $model->state_prok=0;
+                $model_changes->save();
+            }
+
+
+
+
+
+            //Комментарии прокуратуры
+            if(array_key_exists('prokuratura',$roles))
+            {
+                if($model->f11_comment_proc!=$model_last->f11_comment_proc)
+                {
+                    $model->f11_comment_proc=$model->f11_comment_proc.' '.$date.' '.Yii::$app->user->getIdentity()->name;
+                }
+                if($model->f12_comment_proc!=$model_last->f12_comment_proc)
+                {
+                    $model->f12_comment_proc=$model->f12_comment_proc.' '.$date.' '.Yii::$app->user->getIdentity()->name;
+                }
+                if($model->f131_comment_proc!=$model_last->f131_comment_proc)
+                {
+                    $model->f131_comment_proc=$model->f131_comment_proc.' '.$date.' '.Yii::$app->user->getIdentity()->name;
+                }
+                if($model->f132_comment_proc!=$model_last->f132_comment_proc)
+                {
+                    $model->f132_comment_proc=$model->f132_comment_proc.' '.$date.' '.Yii::$app->user->getIdentity()->name;
+                }
+                if($model->f21_comment_proc!=$model_last->f21_comment_proc)
+                {
+                    $model->f22_comment_proc=$model->f22_comment_proc.' '.$date.' '.Yii::$app->user->getIdentity()->name;
+                }
+            }
+            $model->date=date('yy-m-d');
              $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         }

@@ -16,16 +16,13 @@ class m201003_051547_create_reglaments_table extends Migration
             'id' => $this->primaryKey(),
             'message'=>$this->string(),
             'state'=>$this->integer(),
-            'state_upr'=>$this->integer(),
-            'comment_upr'=>$this->string(),
-            'state_gov'=>$this->integer(),
-            'comment_gov'=>$this->string(),
+            'date'=> $this->date(),
             'state_expert'=>$this->integer(),
             'comment_expert'=>$this->string(),
             'state_prok'=>$this->integer(),
             'comment_prok'=>$this->string(),
-            'state_economics'=>$this->integer(),
-            'comment_economics'=>$this->string(),
+//            'state_economics'=>$this->integer(),
+//            'comment_economics'=>$this->string(),
 
         ]);
     }
