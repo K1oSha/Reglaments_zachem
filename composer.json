@@ -7,7 +7,9 @@
         "yiisoft/yii2-bootstrap": "*",
         "yiisoft/yii2-debug": "^2.1",
         "fzaninotto/faker": "*",
-        "codeception/module-yii2": "^1.1"
+        "codeception/module-yii2": "^1.1",
+        "yiisoft/yii2-gii": "^2.2",
+        "yii2mod/yii2-rbac": "*"
     },
     "config": {
         "fxp-asset": {

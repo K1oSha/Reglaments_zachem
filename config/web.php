@@ -3,7 +3,7 @@
    $config =[
     'id'=>'reglament',
     'basePath'=> realpath(__DIR__.'/../'),
-       'bootstrap'=>['debug'],
+       'bootstrap'=>['debug','gii'],
       'components'=>[
         'urlManager'=>[
           'enablePrettyUrl'=>true,
@@ -11,15 +11,25 @@
         ],
           'request'=>[
               'cookieValidationKey' => 'vsemprivetktoetochitaet',
+              'baseUrl' => ''
           ],
           'db'=> require(__DIR__.'/db.php'),
           'user'=>[
               'identityClass' =>'app\models\UserIdentity',
               'enableAutoLogin' => true,
           ],
+          'authManager' => [
+              'class' => 'yii\rbac\DbManager',
+              // uncomment if you want to cache RBAC items hierarchy
+              // 'cache' => 'cache',
+          ],
+          'errorHandler'=>[
+              'errorAction'=>'site/error',
+          ],
       ],
        'modules'=>[
            'debug'=>'yii\debug\Module',
+           'gii' => 'yii\gii\Module',
        ],
         ];
 
