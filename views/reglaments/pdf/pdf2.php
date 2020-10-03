@@ -49,15 +49,8 @@ NOTES:
 $certificate = 'file://C:\Program Files\OpenSSL-Win64\bin\tcpdf.crt';
 
 // set additional information
-$info = array(
-    'Name' => 'TCPDF',
-    'Location' => 'Office',
-    'Reason' => 'Testing TCPDF',
-    'ContactInfo' => 'http://www.tcpdf.org',
-    );
 
 // set document signature
-$pdf->setSignature($certificate, $certificate, 'tcpdfdemo', '', 2, $info);
 
 // set font
 $pdf->SetFont('helvetica', '', 12);
@@ -84,11 +77,14 @@ $pdf->setSignatureAppearance(180, 60, 15, 15);
 $pdf->addEmptySignatureAppearance(180, 80, 15, 15);
 
 // ---------------------------------------------------------
-ob_end_clean();
+// ob_end_clean();
+// ob_get_clean();
 //Close and output PDF document
-
-$pdf->Output('C:\Program Files\OpenSSL-Win64\bin\1.pdf', 'F');
-
-//============================================================+
-// END OF FILE
-//============================================================+
+$certificado_crt = 'file://C:\Program Files\OpenSSL-Win64\bin\tcpdf.crt';
+$certificado_key = 'file://C:\Program Files\OpenSSL-Win64\bin\tcpdf.key';
+$pdf->setSignature($certificado_crt,$certificado_key, 'tcpdfdemo', '', 1);
+$content = $pdf->Output('Certificado.pdf', 'S');
+$file = fopen("Certificado.pdf", "w+");
+fwrite($file, $content);
+fclose($file);
+\Yii::$app->response->sendFile("Certificado.pdf");
