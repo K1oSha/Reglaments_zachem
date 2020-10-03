@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
 <div class="reglaments-create">
 
     <h1><?= Html::encode($this->title) ?></h1>
-
+    <?yii::$app->session['test'] = $model?>
     <?= $this->render('_form', [
         'model' => $model,
     ]) ?>
