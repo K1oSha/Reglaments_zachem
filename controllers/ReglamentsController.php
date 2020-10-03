@@ -36,7 +36,7 @@ class ReglamentsController extends Controller
     public function actionIndex()
     {
         $roles = Yii::$app->authManager->getRolesByUser(Yii::$app->user->getId());
-        if(array_key_exists('secretary',$roles))
+        if(array_key_exists('secretary',$roles) or array_key_exists('admin',$roles))
         {
             $searchModel = new ReglamentsSearch();
             $dataProvider = $searchModel->search(Yii::$app->request->queryParams,0);
