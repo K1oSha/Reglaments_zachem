@@ -7,7 +7,7 @@ use yii\widgets\Pjax;
 /* @var $searchModel app\models\ReglamentsSearch */
 /* @var $dataProvider yii\data\ActiveDataProvider */
 
-$this->title = 'Reglaments';
+$this->title = 'Административные регламенты';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="reglaments-index">
@@ -15,7 +15,12 @@ $this->params['breadcrumbs'][] = $this->title;
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Create Reglaments', ['create'], ['class' => 'btn btn-success']) ?>
+        <?
+        $roles = Yii::$app->authManager->getRolesByUser(Yii::$app->user->getId());
+        ?>
+        <? if(array_key_exists('secretary',$roles)){?>
+            <?= Html::a('Создать регламент', ['create'], ['class' => 'btn btn-success']) ?>
+        <?}?>
     </p>
     <ul class="nav nav-tabs">
         <li class="active">
