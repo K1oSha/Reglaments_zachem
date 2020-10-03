@@ -13,23 +13,11 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="reglaments-view">
 
-    <h1><?= Html::encode($this->title) ?></h1>
-
-    <p>
-        <?= Html::a('Update', ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
-        <?= Html::a('Delete', ['delete', 'id' => $model->id], [
-            'class' => 'btn btn-danger',
-            'data' => [
-                'confirm' => 'Are you sure you want to delete this item?',
-                'method' => 'post',
-            ],
-        ]) ?>
-    </p>
 
     <?= DetailView::widget([
         'model' => $model,
+        'formatter' => ['class' => 'yii\i18n\Formatter','nullDisplay' =>  '(Не задано)'],
         'attributes' => [
-            'id',
             'message',
             'state',
             'state_upr',
@@ -44,5 +32,10 @@ $this->params['breadcrumbs'][] = $this->title;
             'comment_economics',
         ],
     ]) ?>
-
+    <span class="btn pull-left"> <?= Html::a('На главную', ('/reglaments/index'),
+            ['class'=>'btn btn-danger',]) ?>
+    </span>
+    <span class="btn pull-right">  <?= Html::a( 'Изменить',
+            ['update', 'id' => $model->id], ['class' => 'btn btn-primary']) ?>
+    </span>
 </div>

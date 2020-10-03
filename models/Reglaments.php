@@ -13,14 +13,14 @@ class Reglaments extends ActiveRecord
     {
         return
             [
-                [['message','state','state_upr','comment_upr',
-                'state_gov','comment_gov',
-                    'state_expert','comment_expert',
-                    'state_prok','comment_prok',
-                    'state_economics','comment_economics',
+                [['message','state','state_upr',
+                'state_gov',
+                    'state_expert',
+                    'state_prok',
+                    'state_economics',
 
                 ],'required'],
-                ['name','string']
+                [['comment_gov','comment_upr','comment_expert','comment_prok','comment_economics'],'fields']
             ];
     }
     public function attributeLabels()
@@ -42,4 +42,16 @@ class Reglaments extends ActiveRecord
             ];
     }
 
+    public function getStateList_for_check()
+    {
+        return[
+          'Ожидает проверки','Возвращено на доработку','Проверено'
+        ];
+    }
+    public function getStateList_for_reglament()
+    {
+        return[
+            'Проверяется','Согласован'
+        ];
+    }
 }

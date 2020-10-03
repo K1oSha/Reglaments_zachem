@@ -5,7 +5,7 @@ use yii\bootstrap\NavBar;
 <? $this->beginPage();?><!--  Тригер для бутстрапа -->
 
         <head>
-            <title>Finance</title>
+            <title>Reglametns</title>
             <? $this->head();?><!--  Тригер для бутстрапа -->
         </head>
 
@@ -29,6 +29,7 @@ use yii\bootstrap\NavBar;
            else
                $menu =[
                    ['label'=>Yii::$app->user->getIdentity()->name],
+                   ['label'=>'Регламенты','url'=>['/reglaments/index']],
                    ['label'=>'Роли','url'=>['/roles/view']],
                    ['label'=>'Выйти','url'=>['/user/logout']],
                ];

@@ -24,11 +24,14 @@ $this->params['breadcrumbs'][] = $this->title;
     <?= GridView::widget([
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
+        'formatter' => ['class' => 'yii\i18n\Formatter','nullDisplay' =>  '(Не задано)'],
+        'summary' =>"Показаны записи {begin} - {end} из {totalCount} ",
+        'emptyText' => 'Записи не найдены',
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
-            'message',
+//            'id',
+//            'message',
             'state',
             'state_upr',
             'comment_upr',

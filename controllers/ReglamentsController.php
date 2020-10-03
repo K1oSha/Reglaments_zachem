@@ -65,7 +65,12 @@ class ReglamentsController extends Controller
     public function actionCreate()
     {
         $model = new Reglaments();
-
+        $model->state=0;
+        $model->state_upr=0;
+        $model->state_gov=0;
+        $model->state_expert=0;
+        $model->state_prok=0;
+        $model->state_economics=0;
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
