@@ -115,13 +115,13 @@ class Reglaments extends ActiveRecord
     }
 
 
-    public function getStateList_for_check()
+    public static function getStateList_for_check()
     {
         return[
           'Ожидает проверки','Возвращено на доработку','Проверено'
         ];
     }
-    public function getStateList_for_reglament()
+    public static function getStateList_for_reglament()
     {
         return[
             'Проверяется','Согласован'
