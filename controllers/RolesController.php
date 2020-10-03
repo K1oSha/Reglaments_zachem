@@ -4,9 +4,11 @@
 namespace app\controllers;
 
 //use function GuzzleHttp\Promise\all;
+use app\models\Auth_assignment;
 use app\models\UserIdentity;
 use app\models\UserRecord;
 use yii\filters\AccessControl;
+use yii\helpers\ArrayHelper;
 use yii\web\Controller;
 use yii;
 use yii\web\HttpException;
@@ -93,6 +95,11 @@ class RolesController extends Controller
     }
     public function actionCreate_assignment()
     {
+        $users=ArrayHelper::map(UserIdentity::find()->all(), 'id', 'name');
+        $users_with_role=Auth_assignment::find()->select('user_id')->column();
+        foreach ( $users_with_role as $item) {
+            unset($users[$item]);
+        }
         $role = new \yii\base\DynamicModel(['item_name','user_id']);
         $role->addRule(['item_name','user_id'], 'string', ['max'=>128]);
         if($role->load(Yii::$app->request->post())){
@@ -110,7 +117,7 @@ class RolesController extends Controller
                  return $this->redirect('/roles/view_assignments');
              }
         }
-        return $this->render('create_assignment',['role'=>$role]);
+        return $this->render('create_assignment',['role'=>$role,'users'=>$users]);
     }
 
     public function actionDelete_inheritance($parent, $child)

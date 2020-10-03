@@ -35,12 +35,27 @@ class ReglamentsController extends Controller
      */
     public function actionIndex()
     {
-        $searchModel = new ReglamentsSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $roles = Yii::$app->authManager->getRolesByUser(Yii::$app->user->getId());
+        if(array_key_exists('secretary',$roles))
+        {
+            $searchModel = new ReglamentsSearch();
+            $dataProvider = $searchModel->search(Yii::$app->request->queryParams,0);
+            $searchModel_bad= new ReglamentsSearch();
+            $dataProvider_bad = $searchModel_bad->search(Yii::$app->request->queryParams,1);
+        }
+        if(array_key_exists('prokuratura',$roles))
+        {
+            $searchModel = new ReglamentsSearch();
+            $dataProvider = $searchModel->search(Yii::$app->request->queryParams,2);
+            $searchModel_bad= new ReglamentsSearch();
+            $dataProvider_bad = $searchModel_bad->search(Yii::$app->request->queryParams,3);
+        }
 
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
+            'searchModel_bad'=>$searchModel_bad,
+            'dataProvider_bad'=>$dataProvider_bad,
         ]);
     }
 
@@ -91,7 +106,15 @@ class ReglamentsController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+        if ($model->load(Yii::$app->request->post()) ) {
+            if($model->state_upr==1 && $model->state_gov==1 && $model->state_expert==1
+                && $model->state_prok==1 && $model->state_economics==1 )
+            {
+                $model->state=1;
+            }else{
+                $model->state=0;
+            }
+             $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         }
 

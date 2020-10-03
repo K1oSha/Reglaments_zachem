@@ -37,5 +37,9 @@ class UserRecord extends ActiveRecord{
     {
         return Yii::$app->security->validatePassword($password,$this->passhash);
     }
-
+    public static function findUserById($userid)
+    {
+        $user = UserRecord::find()->where(['id' =>$userid])->one();
+        return $user;
+    }
 }

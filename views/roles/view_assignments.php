@@ -18,10 +18,10 @@ use yii\helpers\Html;
         <table class="table table-hover">
             <thead>
             <tr>
-                <th scope="col"><?=  'Name' ?></th>
-                <th scope="col"><?=  'Email' ?></th>
-                <th scope="col"><?=  'Name of role' ?></th>
-                <th scope="col"><?=  'User_ID' ?></th>
+                <th scope="col"><?= 'Name' ?></th>
+                <th scope="col"><?= 'Email' ?></th>
+                <th scope="col"><?= 'Name of role' ?></th>
+                <th scope="col"><?= 'User_ID' ?></th>
             </tr>
             </thead>
             <tbody>
@@ -37,7 +37,7 @@ use yii\helpers\Html;
                             <td>
                                 <div class="col-sm-12" >
                                     <span>
-                                        <?= Html::a('Удалить',['delete_assignment','role'=>$assignment->roleName,'id'=>$assignment->userId],
+                                        <?= Html::a( 'Удалить',['delete_assignment','role'=>$assignment->roleName,'id'=>$assignment->userId],
                                             ['class'=>'label label-danger']) ?>
                                     </span>
                                 </div>

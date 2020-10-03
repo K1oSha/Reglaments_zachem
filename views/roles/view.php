@@ -8,21 +8,21 @@ use app\models\AuthAssignment;
             <?php echo yii::$app->session->getFlash('message');?>
         </div>
     <?php endif;?>
-    <span style="margin-bottom: 50px"><?= Html::a( 'Создать роль', ('create'),
+    <span style="margin-bottom: 50px"><?= Html::a('Создать роль', ('create'),
             ['class'=>'btn btn-success'])?>
     </span>
     <span style="margin-bottom: 50px"><?= Html::a( 'Посмотреть присвоение ролей', ('view_assignments'),
             ['class'=>'btn btn-primary'])?>
     </span>
-    <span style="margin-bottom: 50px"><?= Html::a( 'Посмотреть наследствия', ('view_inheritances'),
+    <span style="margin-bottom: 50px"><?= Html::a('Посмотреть наследствия', ('view_inheritances'),
             ['class'=>'btn btn-primary'])?>
     </span>
     <div class='body-content'>
         <table class="table table-hover">
             <thead>
             <tr>
-                <th scope="col"><?=  'Имя' ?></th>
-                <th scope="col"><?=  'Описание'?></th>
+                <th scope="col"><?= 'Имя' ?></th>
+                <th scope="col"><?= 'Описание' ?></th>
             </tr>
             </thead>
             <tbody>

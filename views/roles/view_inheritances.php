@@ -8,7 +8,7 @@ use app\models\AuthAssignment;
             <?php echo yii::$app->session->getFlash('message');?>
         </div>
     <?php endif;?>
-    <span style="margin-bottom: 50px"><?= Html::a('Create', ('create_inheritance'),
+    <span style="margin-bottom: 50px"><?= Html::a( 'Create', ('create_inheritance'),
             ['class'=>'btn btn-success'])?>
     </span>
     <span><?= Html::a('Back to View', ('/roles/view'),
@@ -17,8 +17,8 @@ use app\models\AuthAssignment;
         <table class="table table-hover">
             <thead>
             <tr>
-                <th scope="col"><?=  'parent' ?></th>
-                <th scope="col"><?= 'childs' ?></th>
+                <th scope="col"><?= 'parent' ?></th>
+                <th scope="col"><?=  'childs' ?></th>
             </tr>
             </thead>
             <tbody>
