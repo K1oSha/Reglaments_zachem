@@ -95,6 +95,11 @@ class ReglamentsController extends Controller
         ]);
     }
 
+    public function actionPdf()
+    {
+        return $this->render('\pdf\pdf2');
+    }
+
     /**
      * Updates an existing Reglaments model.
      * If update is successful, the browser will be redirected to the 'view' page.

@@ -9,8 +9,15 @@
         "fzaninotto/faker": "*",
         "codeception/module-yii2": "^1.1",
         "yiisoft/yii2-gii": "^2.2",
-        "yii2mod/yii2-rbac": "*"
+        "yii2mod/yii2-rbac": "*",
+		"tecnickcom/TCPDF": "dev-main"
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:tecnickcom/tc-lib-pdf.git"
+        }
+    ],
     "config": {
         "fxp-asset": {
             "installer-paths": {
