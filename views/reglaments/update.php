@@ -14,8 +14,38 @@ $this->params['breadcrumbs'][] = 'Update';
 
     <h1><?= Html::encode($this->title) ?></h1>
 
-    <?= $this->render('_form', [
-        'model' => $model,
-    ]) ?>
+    <?
+    $roles = Yii::$app->authManager->getRolesByUser(Yii::$app->user->getId());
+    ?>
+    <? if(array_key_exists('economics',$roles)){?>
+        <?= $this->render('_form_economics', [
+            'model' => $model,
+        ]) ?>
+    <?}?>
+    <? if(array_key_exists('experts',$roles)){?>
+        <?= $this->render('_form_expert', [
+            'model' => $model,
+        ]) ?>
+    <?}?>
+    <? if(array_key_exists('government',$roles)){?>
+        <?= $this->render('_form_gov', [
+            'model' => $model,
+        ]) ?>
+    <?}?>
+    <? if(array_key_exists('prokuratura',$roles)){?>
+        <?= $this->render('_form_prok', [
+            'model' => $model,
+        ]) ?>
+    <?}?>
+    <? if(array_key_exists('secretary',$roles)){?>
+        <?= $this->render('_form_secretary', [
+            'model' => $model,
+        ]) ?>
+    <?}?>
+    <? if(array_key_exists('upoln',$roles)){?>
+        <?= $this->render('_form_upoln', [
+            'model' => $model,
+        ]) ?>
+    <?}?>
 
 </div>

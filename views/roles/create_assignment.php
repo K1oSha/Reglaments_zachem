@@ -1,4 +1,6 @@
 <?
+
+use app\models\Auth_item;
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
 
@@ -13,14 +15,14 @@ use yii\widgets\ActiveForm;
         <div class="row">
             <div class="form-group">
                 <div class="col-lg-6">
-                    <?= $form->field($role,'item_name'); ?>
+                    <?= $form->field($role,'item_name')->dropDownList(Auth_item::getList())->label('Роль'); ?>
                 </div>
             </div>
         </div>
         <div class="row">
             <div class="form-group">
                 <div class="col-lg-6">
-                    <?= $form->field($role,'user_id')?>
+                    <?= $form->field($role,'user_id')->dropDownList($users)->label('Имя пользователя')?>
                 </div>
             </div>
         </div>
@@ -30,7 +32,7 @@ use yii\widgets\ActiveForm;
                            <span><?= Html::submitButton('Присвоить роль',
                                    ['class'=>'btn btn-success']) ?></span>
 
-            <span><?= Html::a('Назад', ('/roles/view_assignments'),
+            <span><?= Html::a('Back to View', ('/roles/view_assignments'),
                     ['class'=>'btn btn-danger']) ?></span>
         </div>
     </div>

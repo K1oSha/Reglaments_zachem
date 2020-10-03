@@ -30,7 +30,7 @@ use yii\widgets\ActiveForm;
                            <span><?= Html::submitButton('Создать наследсвание',
                                    ['class'=>'btn btn-success']) ?></span>
 
-            <span><?= Html::a('Назад', ('/roles/view_inheritances'),
+            <span><?= Html::a('Back to View', ('/roles/view_inheritances'),
                     ['class'=>'btn btn-danger']) ?></span>
         </div>
     </div>

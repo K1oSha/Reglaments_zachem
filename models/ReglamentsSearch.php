@@ -43,10 +43,25 @@ class ReglamentsSearch extends Reglaments
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
+    public function search($params,$params_bad=0)
     {
         $query = Reglaments::find();
-
+        if($params_bad==1)
+        {
+            $query->where(['state'=>0]);
+        }
+        if($params_bad==0)
+        {
+            $query->where(['state'=>1]);
+        }
+        if($params_bad==2)
+        {
+            $query->where(['state_prok'=>2]);
+        }
+        if($params_bad==3)
+        {
+            $query->where(['and',['state_prok'=> 0]]);
+        }
         // add conditions that should always apply here
 
         $dataProvider = new ActiveDataProvider([
