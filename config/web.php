@@ -23,9 +23,12 @@
               // uncomment if you want to cache RBAC items hierarchy
               // 'cache' => 'cache',
           ],
-          'errorHandler'=>[
-              'errorAction'=>'site/error',
+          'cache' => [
+              'class' => 'yii\caching\FileCache',  // Подключаем файловое кэширование данных
           ],
+//          'errorHandler'=>[
+//              'errorAction'=>'site/error',
+//          ],
       ],
        'modules'=>[
            'debug'=>'yii\debug\Module',

@@ -23,13 +23,14 @@ use yii\bootstrap\NavBar;
 
            if (Yii::$app->user->isGuest)
            $menu =[
-             ['label'=>'Join','url'=>['/user/join']],
-               ['label'=>'Log in','url'=>['/user/login']],
+             ['label'=>'Регистрация','url'=>['/user/join']],
+               ['label'=>'Войти','url'=>['/user/login']],
            ];
            else
                $menu =[
                    ['label'=>Yii::$app->user->getIdentity()->name],
-                   ['label'=>'Logout','url'=>['/user/logout']],
+                   ['label'=>'Роли','url'=>['/roles/view']],
+                   ['label'=>'Выйти','url'=>['/user/logout']],
                ];
            echo Nav::widget([
                    'options'=>['class'=>'navbar-nav navbar-right'],
