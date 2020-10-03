@@ -32,9 +32,9 @@ $this->params['breadcrumbs'][] = $this->title;
 
 //            'id',
 //            'message',
-            'state',
-            'state_upr',
-            'comment_upr',
+            ['attribute'=>'state','value'=>'StateName_for_reglament','filter'=>\app\models\Reglaments::getStateList_for_reglament()],
+            ['attribute'=>'state_upr','value'=>'StateName_for_check_upr','filter'=>\app\models\Reglaments:: getStateList_for_check()],
+//            'comment_upr',
             //'state_gov',
             //'comment_gov',
             //'state_expert',

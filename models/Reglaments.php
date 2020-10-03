@@ -42,6 +42,7 @@ class Reglaments extends ActiveRecord
             ];
     }
 
+
     public function getStateList_for_check()
     {
         return[
@@ -53,5 +54,35 @@ class Reglaments extends ActiveRecord
         return[
             'Проверяется','Согласован'
         ];
+    }
+    public function getStateName_for_check_upr()
+    {
+        $list=$this->getStateList_for_check();
+        return $list[$this->state_upr];
+    }
+    public function getStateName_for_check_gov()
+    {
+        $list=$this->getStateList_for_check();
+        return $list[$this->state_gov];
+    }
+    public function getStateName_for_check_economics()
+    {
+        $list=$this->getStateList_for_check();
+        return $list[$this->state_economics];
+    }
+    public function getStateName_for_check_prok()
+    {
+        $list=$this->getStateList_for_check();
+        return $list[$this->state_prok];
+    }
+    public function getStateName_for_check_expert()
+    {
+        $list=$this->getStateList_for_check();
+        return $list[$this->state_expert];
+    }
+    public function getStateName_for_reglament()
+    {
+        $list=$this->getStateList_for_reglament();
+        return $list[$this->state];
     }
 }
