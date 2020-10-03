@@ -54,7 +54,9 @@ $this->params['breadcrumbs'][] = $this->title;
                     //'state_economics',
                     //'comment_economics',
 
-                    ['class' => 'yii\grid\ActionColumn'],
+                    ['class' => 'yii\grid\ActionColumn',
+                        'template' => ' {update} &nbsp&nbsp {view}  ',
+                    ],
                 ],
             ]); ?>
 
@@ -87,7 +89,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     //'state_economics',
                     //'comment_economics',
 
-                    ['class' => 'yii\grid\ActionColumn'],
+                    ['class' => 'yii\grid\ActionColumn',
+                        'template' => ' {update} &nbsp&nbsp {view}  ',],
                 ],
             ]); ?>
 
