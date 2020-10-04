@@ -30,5 +30,9 @@ php yii.php migrate
 
 можно залогиниться за секретаря по данным `rmkcyy@creatnew.pw` : `secretary`  
 
+можно залогиниться за сотрудника прокуратуры по данным `prokuratura@mailper.work` : `prokuratura`  
+
+
+
 `https://www.1day.email/mailbox/rmkcyy@creatnew.pw` ссылка для проверки почты 
 

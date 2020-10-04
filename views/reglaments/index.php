@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </p>
     <ul class="nav nav-tabs">
         <li class="active">
-            <a data-toggle="tab" href="#bad_reglament"><?='Регламенты на согласовнии'?></a>
+            <a data-toggle="tab" href="#bad_reglament"><?='Регламенты на согласовании'?></a>
         </li>
         <li >
             <a data-toggle="tab" href="#good_reglament"><?= 'Согласованные регламенты'?></a>
