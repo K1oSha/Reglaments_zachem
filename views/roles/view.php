@@ -14,7 +14,7 @@ use app\models\AuthAssignment;
     <span style="margin-bottom: 50px"><?= Html::a( 'Посмотреть присвоение ролей', ('view_assignments'),
             ['class'=>'btn btn-primary'])?>
     </span>
-    <span style="margin-bottom: 50px"><?= Html::a('Посмотреть наследствия', ('view_inheritances'),
+    <span style="margin-bottom: 50px"><?= Html::a('Посмотреть наследования', ('view_inheritances'),
             ['class'=>'btn btn-primary'])?>
     </span>
     <div class='body-content'>

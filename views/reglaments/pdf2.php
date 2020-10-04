@@ -1,4 +1,17 @@
 <?
+function sozdat_slag($stroka) {
+		
+    $rus=array('А','Б','В','Г','Д','Е','Ё','Ж','З','И','Й','К','Л','М','Н','О','П','Р','С','Т','У','Ф','Х','Ц','Ч','Ш','Щ','Ъ','Ы','Ь','Э','Ю','Я','а','б','в','г','д','е','ё','ж','з','и','й','к','л','м','н','о','п','р','с','т','у','ф','х','ц','ч','ш','щ','ъ','ы','ь','э','ю','я',' ');
+    
+    $lat=array('a','b','v','g','d','e','e','gh','z','i','y','k','l','m','n','o','p','r','s','t','u','f','h','c','ch','sh','sch','y','y','y','e','yu','ya','a','b','v','g','d','e','e','gh','z','i','y','k','l','m','n','o','p','r','s','t','u','f','h','c','ch','sh','sch','y','y','y','e','yu','ya',' ');
+  
+      $stroka = str_replace($rus, $lat, $stroka); // перевеодим на английский
+      $stroka = str_replace('-', '', $stroka); // удаляем все исходные "-"
+      $slag = preg_replace('/[^A-Za-z0-9-]+/', '-', $stroka); // заменяет все символы и пробелы на "-"
+  return $slag;
+}
+
+
 // create new PDF document
 $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
@@ -60,7 +73,7 @@ $pdf->AddPage();
 // print a line of text
 $text = 'Это <b color="#FF0000">Образец подписанного ПДФ файла созданного по регламенту</b> c использованием системных ключей подписи ( для примера ) Чтобы проверить, не изменялись ли данные после подписи, вам нужно открыть PDF в Acrobat Reader и посмотреть свойства документа</a>';
 // $try = $model->message;
-$text .=  '<br/>'.'<br/>' . $model->message . '<br/>';
+$text .=  '<br/>'.'<br/>' . $model->message . '<br/>'. '<br/>'. $model->date . '<br/>'. '<br/>'. $model->f11 . '<br/>'. '<br/>'. $model->f12 . '<br/>'. '<br/>'. $model->f131 . '<br/>'. '<br/>'. $model->f132 . '<br/>'. '<br/>'. $model->f21 . '<br/>'. '<br/>'. $model->f22 . '<br/>'. '<br/>';
 
 $pdf->writeHTML($text, true, 0, true, 0);
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -82,8 +95,8 @@ $pdf->addEmptySignatureAppearance(180, 80, 15, 15);
 $certificado_crt = 'file://'. __DIR__ . "/tcpdf.crt";
 $certificado_key = 'file://'. __DIR__ . "/tcpdf.key";
 $pdf->setSignature($certificado_crt,$certificado_key, 'tcpdfdemo', '', 1);
-$content = $pdf->Output('Certificado.pdf', 'S');
-$file = fopen("Certificado.pdf", "w+");
+$content = $pdf->Output( sozdat_slag("$model->message") . '.pdf', 'S');
+$file = fopen( sozdat_slag("$model->message") . '.pdf', "w+");
 fwrite($file, $content);
 fclose($file);
-\Yii::$app->response->sendFile("Certificado.pdf");
+\Yii::$app->response->sendFile(sozdat_slag("$model->message") .".pdf");
