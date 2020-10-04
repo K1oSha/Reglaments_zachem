@@ -102,7 +102,7 @@ use yii\widgets\DetailView;
     <div class="form-group">
         <span class="btn pull-left"><?= Html::a( 'Назад', ('/reglaments/index'),
                 ['class'=>'btn btn-danger']) ?></span>
-        <span class="btn pull-right"><?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
+        <span class="btn pull-right"><?= Html::submitButton('Подписать', ['class' => 'btn btn-success']) ?>
             </span>
     </div>
 
