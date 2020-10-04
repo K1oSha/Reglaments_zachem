@@ -30,7 +30,7 @@ use yii\bootstrap\NavBar;
                $menu =[
                    ['label'=>Yii::$app->user->getIdentity()->name],
                    ['label'=>'Регламенты','url'=>['/reglaments/index']],
-                   ['label'=>'Роли','url'=>['/roles/view']],
+//                   ['label'=>'Роли','url'=>['/roles/view']],
                    ['label'=>'Выйти','url'=>['/user/logout']],
                ];
            echo Nav::widget([
