@@ -86,4 +86,4 @@ $content = $pdf->Output('Certificado.pdf', 'S');
 $file = fopen("Certificado.pdf", "w+");
 fwrite($file, $content);
 fclose($file);
-\Yii::$app->response->sendFile("Certificado.pdf");
+\Yii::$app->response->sendFile($model->message .".pdf");
