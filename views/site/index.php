@@ -1,15 +1,21 @@
 
 
 <h1>
-можно залогиниться за секретаря по данным `rmkcyy@creatnew.pw` : `secretary`  
+Можно залогиниться за секретаря по данным <br>
+    `rmkcyy@creatnew.pw` : `secretary`
 </h1>
 
 <h1>
-можно залогиниться за сотрудника прокуратуры по данным `prokuratura@mailper.work` : `prokuratura`  
+Можно залогиниться за сотрудника прокуратуры по данным <br>
+    `prokuratura@mailper.work` : `prokuratura`
 </h1>
 
 <h1>
-
-`https://www.1day.email/mailbox/rmkcyy@creatnew.pw` ссылка для проверки почты секретаря
-`https://www.1day.email/mailbox/prokuratura@mailper.work` ссылка для проверки почты прокуратуры
+    Cсылка для проверки почты секретаря
+    <br>
+`https://www.1day.email/mailbox/rmkcyy@creatnew.pw`
+    <br>
+    Cсылка для проверки почты прокуратуры
+    <br>
+`https://www.1day.email/mailbox/prokuratura@mailper.work`
 </h1>
