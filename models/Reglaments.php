@@ -19,7 +19,7 @@ class Reglaments extends ActiveRecord
                     'state_prok',
 //                    'state_economics',
 
-                ],'required'],
+                ],'required','message'=>'Данное поле должно быть заполнено'],
                 [[
 //                    'comment_gov',
 //                    'comment_upr',
@@ -162,7 +162,7 @@ class Reglaments extends ActiveRecord
     public static function getStateList_for_check()
     {
         return[
-          'Проверяется','Возвращено на доработку','Проверено'
+          'Проверяется','Возвращено на доработку','Согласованно'
         ];
     }
     public static function getStateList_for_reglament()
