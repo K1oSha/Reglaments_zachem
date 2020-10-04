@@ -86,6 +86,7 @@ class ReglamentsController extends Controller
         $model->state_prok=0;
         $model->date=date('yy-m-d');
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            $model->sendEmail();
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
@@ -185,6 +186,7 @@ class ReglamentsController extends Controller
                 $model->state=0;
                 $model->state_prok=0;
                 $model_changes->save();
+                $model->sendEmail();
             }
 
 
@@ -216,7 +218,7 @@ class ReglamentsController extends Controller
                 }
             }
             $model->date=date('yy-m-d');
-             $model->save();
+            $model->save();
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
