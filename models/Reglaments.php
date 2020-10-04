@@ -131,16 +131,31 @@ class Reglaments extends ActiveRecord
     }
 
 
-    public function sendEmail()
+    public function sendEmail($p=0)
     {
         $context['message'] = $this->message;
         $prokurors = Auth_assignment::find()->where(['item_name'=>'prokuratura'])->all();
-        foreach($prokurors as $prokuror)
+        if ($p = 0)
         {
-        $user = UserIdentity::findIdentity($prokuror->user_id);
-        $context['username'] = $user->name;
-        Yii::$app->mailer->compose(['html' => 'mail-html'],$context)->setFrom('dev@it-demo.ru')->setTo($user->email)->setSubject("Изменения в регламенте")->send();    
+            foreach($prokurors as $prokuror)
+            {
+                $user = UserIdentity::findIdentity($prokuror->user_id);
+                $context['username'] = $user->name;
+                Yii::$app->mailer->compose(['html' => 'mail-html'],$context)->setFrom('dev@it-demo.ru')->setTo($user->email)->setSubject("Изменения в регламенте")->send();    
+            }
         }
+        else
+        {
+            $secretars = Auth_assignment::find()->where(['item_name'=>'secretary'])->all();
+            foreach($secretars as $secretar)
+            {
+                $user = UserIdentity::findIdentity($secretar->user_id);
+                $context['username'] = $user->name;
+                Yii::$app->mailer->compose(['html' => 'html2'],$context)->setFrom('dev@it-demo.ru')->setTo($user->email)->setSubject("Вердикт по регламенту")->send(); 
+            }
+        }
+        
+
     }
 
 
