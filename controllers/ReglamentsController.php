@@ -94,9 +94,11 @@ class ReglamentsController extends Controller
         ]);
     }
 
-    public function actionPdf()
+    public function actionPdf($id)
     {
-        return $this->render('\pdf\pdf2');
+        $model = $this->findModel($id);
+        // Yii::$app->session['pdf'] = $model;
+        return $this->render('pdf2',['model' => $model]);
     }
 
     /**
