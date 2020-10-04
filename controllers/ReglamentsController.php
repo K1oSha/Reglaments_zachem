@@ -96,7 +96,7 @@ class ReglamentsController extends Controller
 
     public function actionPdf()
     {
-        return $this->render('\pdf\pdf2');
+        return $this->render('pdf2');
     }
 
     /**
