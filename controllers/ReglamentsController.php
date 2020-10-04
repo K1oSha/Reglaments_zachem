@@ -124,8 +124,7 @@ class ReglamentsController extends Controller
 
         $model_last = $this->findModel($id);
         if ($model->load(Yii::$app->request->post()) ) {
-            if( $model->state_expert==1
-                && $model->state_prok==1 )
+            if($model->state_prok==1 )
             {
                 $model->state=1;
             }else{
