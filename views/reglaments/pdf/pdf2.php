@@ -46,7 +46,6 @@ NOTES:
 */
 
 // set certificate file
-$certificate = 'file://C:\Program Files\OpenSSL-Win64\bin\tcpdf.crt';
 
 // set additional information
 
@@ -80,8 +79,8 @@ $pdf->addEmptySignatureAppearance(180, 80, 15, 15);
 // ob_end_clean();
 // ob_get_clean();
 //Close and output PDF document
-$certificado_crt = 'file://C:\Program Files\OpenSSL-Win64\bin\tcpdf.crt';
-$certificado_key = 'file://C:\Program Files\OpenSSL-Win64\bin\tcpdf.key';
+$certificado_crt = 'file://'. __DIR__ . "/tcpdf.crt";
+$certificado_key = 'file://'. __DIR__ . "/tcpdf.key";
 $pdf->setSignature($certificado_crt,$certificado_key, 'tcpdfdemo', '', 1);
 $content = $pdf->Output('Certificado.pdf', 'S');
 $file = fopen("Certificado.pdf", "w+");
