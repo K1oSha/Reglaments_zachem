@@ -21,6 +21,7 @@ class m201003_051547_create_reglaments_table extends Migration
             'comment_expert'=>$this->string(),
             'state_prok'=>$this->integer(),
             'comment_prok'=>$this->string(),
+                'date_last_change'=>$this->date()
 //            'state_economics'=>$this->integer(),
 //            'comment_economics'=>$this->string(),
 

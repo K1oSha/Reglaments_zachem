@@ -115,7 +115,7 @@ class ReglamentsController extends Controller
     public function actionUpdate($id)
     {
         $roles = Yii::$app->authManager->getRolesByUser(Yii::$app->user->getId());
-        $date=date('d-m-yy');
+        $date=date('yy-m-d');
         $model = $this->findModel($id);
 
 
@@ -134,13 +134,20 @@ class ReglamentsController extends Controller
                 $model_changes = new Changes();
                 $model_changes->message=$model_last->message;
                 $model_changes->id_reglament = $model_last->id;
-                $model_changes->date = $model_last->date;
-                $model_changes->f11 = $model_last->f11;
-                $model_changes->f12 = $model_last->f12;
-                $model_changes->f131 = $model_last->f131;
-                $model_changes->f132 = $model_last->f132;
-                $model_changes->f21 = $model_last->f21;
-                $model_changes->f22 = $model_last->f22;
+                $model_changes->date_was = $model_last->date;
+                $model_changes->date_became = $date;
+                $model_changes->f11_was = $model_last->f11;
+                $model_changes->f12_was = $model_last->f12;
+                $model_changes->f131_was = $model_last->f131;
+                $model_changes->f132_was = $model_last->f132;
+                $model_changes->f21_was = $model_last->f21;
+                $model_changes->f22_was = $model_last->f22;
+                $model_changes->f11_became = $model->f11;
+                $model_changes->f12_became = $model->f12;
+                $model_changes->f131_became = $model->f131;
+                $model_changes->f132_became = $model->f132;
+                $model_changes->f21_became = $model->f21;
+                $model_changes->f22_became = $model->f22;
 
                 $model_changes->f11_comment_proc = $model_last->f11_comment_proc;
                 $model_changes->f12_comment_proc = $model_last->f12_comment_proc;
@@ -215,7 +222,16 @@ class ReglamentsController extends Controller
             'model' => $model,
         ]);
     }
-
+    public function actionHistory($id)
+    {
+        $all_versions=Changes::find()->where(['id_reglament'=>$id])->all();
+        $model=$this->findModel($id);
+        return $this->render('history',[
+            'id'=>$id,
+            'model'=>$model,
+            'all_versions'=>$all_versions
+        ]);
+    }
     /**
      * Deletes an existing Reglaments model.
      * If deletion is successful, the browser will be redirected to the 'index' page.

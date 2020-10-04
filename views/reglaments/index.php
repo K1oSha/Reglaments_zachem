@@ -95,7 +95,8 @@ $this->params['breadcrumbs'][] = $this->title;
                     //'comment_economics',
 
                     ['class' => 'yii\grid\ActionColumn',
-                        'template' => ' {update} &nbsp&nbsp {view}  ',],
+                        'template' => ' {update} &nbsp&nbsp {view}  '
+                        ],
                 ],
             ]); ?>
 

@@ -33,6 +33,13 @@ $this->params['breadcrumbs'][] = $this->title;
 //            ['attribute'=> 'comment_economics'],
         ],
     ]) ?>
+    <span class="btn pull-left"> <?= Html::a('Посмотреть историю изменений',
+            ['history','id'=>$model->id],
+            ['class'=>'btn btn-default',]) ?>
+    </span>
+    <br>
+    <br>
+    <br>
     <div class="row">
         <h4>1.1 предмет регулирования регламента</h4>
         <div class="col-lg-6">
