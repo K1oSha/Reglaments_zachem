@@ -223,6 +223,7 @@ class ReglamentsController extends Controller
             }
             $model->date=date('yy-m-d');
             $model->save();
+            $model->sendEmail($p = 1);
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
