@@ -34,5 +34,6 @@ php yii.php migrate
 
 
 
-`https://www.1day.email/mailbox/rmkcyy@creatnew.pw` ссылка для проверки почты 
+`https://www.1day.email/mailbox/rmkcyy@creatnew.pw` ссылка для проверки почты секретаря
+`https://www.1day.email/mailbox/prokuratura@mailper.work` ссылка для проверки почты прокуратуры
 
