@@ -27,17 +27,21 @@ use yii\widgets\DetailView;
     <?php $form = ActiveForm::begin(); ?>
     <div class="row">
         <h4>1.1 предмет регулирования регламента</h4>
-        <div class="col-lg-6">
+        <div class="col-lg-6 panel panel-default">
+            <div class="panel-body">
            <h5><?= $model->f11 ?></h5>
+            </div>
         </div>
         <div class="col-lg-6">
-            <?= $form->field($model, 'f11_comment_proc')->textInput(['maxlength' => true])->textarea() ?>
+            <h5><?= $form->field($model, 'f11_comment_proc')->textInput(['maxlength' => true])->textarea() ?></h5>
         </div>
     </div>
     <div class="row">
         <h4>1.2 круг заявителей</h4>
-        <div class="col-lg-6">
+        <div class="col-lg-6 panel panel-default">
+            <div class="panel-body">
            <h5><?= $model->f12 ?></h5>
+            </div>
         </div>
         <div class="col-lg-6">
             <?= $form->field($model, 'f12_comment_proc')->textInput(['maxlength' => true])->textarea() ?>
@@ -45,8 +49,10 @@ use yii\widgets\DetailView;
     </div>
     <div class="row">
         <h4>1.3.1 порядок получения информации заявителями по вопросам предоставления</h4>
-        <div class="col-lg-6">
+        <div class="col-lg-6 panel panel-default">
+            <div class="panel-body">
             <h5><?= $model->f131 ?></h5>
+            </div>
         </div>
         <div class="col-lg-6">
             <?= $form->field($model, 'f131_comment_proc')->textInput(['maxlength' => true])->textarea() ?>
@@ -54,8 +60,10 @@ use yii\widgets\DetailView;
     </div>
     <div class="row">
         <h4>1.3.2 порядок, форма, место размещения и способы получения справочной информации</h4>
-        <div class="col-lg-6">
+        <div class="col-lg-6 panel panel-default">
+            <div class="panel-body">
             <h5><?= $model->f132 ?></h5>
+            </div>
         </div>
         <div class="col-lg-6">
             <?= $form->field($model, 'f132_comment_proc')->textInput(['maxlength' => true])->textarea() ?>
@@ -63,8 +71,10 @@ use yii\widgets\DetailView;
     </div>
     <div class="row">
         <h4>2.1 наименование государственной услуги</h4>
-        <div class="col-lg-6">
+        <div class="col-lg-6 panel panel-default">
+            <div class="panel-body">
             <h5><?= $model->f21 ?></h5>
+            </div>
         </div>
         <div class="col-lg-6">
             <?= $form->field($model, 'f21_comment_proc')->textInput(['maxlength' => true])->textarea() ?>
@@ -72,8 +82,10 @@ use yii\widgets\DetailView;
     </div>
     <div class="row">
         <h4>2.2 наименование органа, предоставляющего государственную услугу</h4>
-        <div class="col-lg-6">
+        <div class="col-lg-6 panel panel-default">
+            <div class="panel-body">
             <h5><?= $model->f22 ?></h5>
+            </div>
         </div>
         <div class="col-lg-6">
             <?= $form->field($model, 'f22_comment_proc')->textInput(['maxlength' => true])->textarea() ?>
@@ -90,7 +102,7 @@ use yii\widgets\DetailView;
     <div class="form-group">
         <span class="btn pull-left"><?= Html::a( 'Назад', ('/reglaments/index'),
                 ['class'=>'btn btn-danger']) ?></span>
-        <span class="btn pull-right"><?= Html::submitButton('Сохранить', ['class' => 'btn btn-success']) ?>
+        <span class="btn pull-right"><?= Html::submitButton('Подписать', ['class' => 'btn btn-success']) ?>
             </span>
     </div>
 

@@ -3,15 +3,9 @@
 use yii\helpers\Html;
 
 ?>
-    <h1>История изменений</h1>
+    <h1>История изменений административного регламента: <?= $model->message?></h1>
 
-    <span class="btn pull-left"><?= Html::a('Назад', ['reglaments/view',
-            'id' => $id],
-            ['class'=>'btn btn-danger',]) ?></span>
-<br>
-<br>
-    <br>
-    <br>
+
 <?foreach ($all_versions as $all_version):?>
 <div class="row">
     <div class="col-lg-6">
@@ -145,3 +139,6 @@ use yii\helpers\Html;
     <?php endif; ?>
 </div>
 <?endforeach;?>
+<span class="btn pull-left"><?= Html::a('Назад', ['reglaments/view',
+        'id' => $id],
+        ['class'=>'btn btn-danger',]) ?></span>
