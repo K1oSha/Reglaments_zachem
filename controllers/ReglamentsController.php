@@ -212,6 +212,10 @@ class ReglamentsController extends Controller
                 }
                 if($model->f21_comment_proc!=$model_last->f21_comment_proc)
                 {
+                    $model->f21_comment_proc=$model->f21_comment_proc.' '.$date.' '.Yii::$app->user->getIdentity()->name;
+                }
+                if($model->f22_comment_proc!=$model_last->f22_comment_proc)
+                {
                     $model->f22_comment_proc=$model->f22_comment_proc.' '.$date.' '.Yii::$app->user->getIdentity()->name;
                 }
             }

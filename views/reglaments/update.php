@@ -5,7 +5,7 @@ use yii\helpers\Html;
 /* @var $this yii\web\View */
 /* @var $model app\models\Reglaments */
 
-$this->title = 'Update Reglaments: ' . $model->id;
+$this->title = 'Изменение в административном регламенте: ' . $model->message;
 $this->params['breadcrumbs'][] = ['label' => 'Reglaments', 'url' => ['index']];
 $this->params['breadcrumbs'][] = ['label' => $model->id, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = 'Update';
