@@ -125,7 +125,7 @@ class ReglamentsController extends Controller
 
         $model_last = $this->findModel($id);
         if ($model->load(Yii::$app->request->post()) ) {
-            if($model->state_prok==1 )
+            if($model->state_prok==2 )
             {
                 $model->state=1;
             }else{
@@ -133,6 +133,9 @@ class ReglamentsController extends Controller
             }
 
             if(array_key_exists('secretary',$roles)) {
+              $model->state_prok=0;
+
+
                 $model_changes = new Changes();
                 $model_changes->message=$model_last->message;
                 $model_changes->id_reglament = $model_last->id;
