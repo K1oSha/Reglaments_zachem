@@ -26,6 +26,18 @@
           'cache' => [
               'class' => 'yii\caching\FileCache',  // Подключаем файловое кэширование данных
           ],
+          'mailer' => [
+            'class' => 'yii\swiftmailer\Mailer',
+           //   'useFileTransport' => true, //команда чтобы эмейлы отправлялись в локальный файл (понарошку)
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'mail.hosting.reg.ru',
+                'port' => '465',
+                'encryption' => 'ssl',
+                'username' => 'dev@it-demo.ru',
+                'password' => '_oHaI33u'
+                  ],
+            ],
 //          'errorHandler'=>[
 //              'errorAction'=>'site/error',
 //          ],

@@ -10,7 +10,8 @@
         "codeception/module-yii2": "^1.1",
         "yiisoft/yii2-gii": "^2.2",
         "yii2mod/yii2-rbac": "*",
-		"tecnickcom/TCPDF": "dev-main"
+        "tecnickcom/TCPDF": "dev-main",
+        "yiisoft/yii2-swiftmailer": "^2.1"
     },
     "repositories": [
         {

@@ -2,8 +2,7 @@
 
 namespace app\models;
 
-
-
+use app\models\Auth_assignment;
 use Yii;
 use yii\db\ActiveRecord;
 
@@ -129,6 +128,19 @@ class Reglaments extends ActiveRecord
 //                'state_economics'=>'Статус Экономистов',
 //                'comment_economics'=>'Комментарий Экономистов',
             ];
+    }
+
+
+    public function sendEmail()
+    {
+        $context['message'] = $this->message;
+        $prokurors = Auth_assignment::find()->where(['item_name'=>'prokuratura'])->all();
+        foreach($prokurors as $prokuror)
+        {
+        $user = UserIdentity::findIdentity($prokuror->user_id);
+        $context['username'] = $user->name;
+        Yii::$app->mailer->compose(['html' => 'mail-html'],$context)->setFrom('dev@it-demo.ru')->setTo($user->email)->setSubject("Изменения в регламенте")->send();    
+        }
     }
 
 

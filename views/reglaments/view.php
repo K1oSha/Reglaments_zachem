@@ -36,6 +36,10 @@ $this->params['breadcrumbs'][] = $this->title;
     <span class="btn pull-left"> <?= Html::a('Посмотреть историю изменений',
             ['history','id'=>$model->id],
             ['class'=>'btn btn-default',]) ?>
+    </span> 
+    <span class="btn pull-left"> <?= Html::a('Скачать PDF',
+            ['pdf','id'=>$model->id],
+            ['class'=>'btn btn-success',]) ?>
     </span>
     <br>
     <br>
