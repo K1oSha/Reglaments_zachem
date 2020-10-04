@@ -60,7 +60,7 @@ $pdf->AddPage();
 // print a line of text
 $text = 'Это <b color="#FF0000">Образец подписанного ПДФ файла созданного по регламенту</b> c использованием системных ключей подписи ( для примера ) Чтобы проверить, не изменялись ли данные после подписи, вам нужно открыть PDF в Acrobat Reader и посмотреть свойства документа</a>';
 // $try = $model->message;
-$text .=  '<br/>'.'<br/>' . $model->message . '<br/>';
+$text .=  '<br/>'.'<br/>' . $model->message . '<br/>'. '<br/>'. $model->date . '<br/>'. '<br/>'. $model->f11 . '<br/>'. '<br/>'. $model->f12 . '<br/>'. '<br/>'. $model->f131 . '<br/>'. '<br/>'. $model->f132 . '<br/>'. '<br/>'. $model->f21 . '<br/>'. '<br/>'. $model->f22 . '<br/>'. '<br/>';
 
 $pdf->writeHTML($text, true, 0, true, 0);
 // - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

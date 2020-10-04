@@ -37,6 +37,11 @@ $this->params['breadcrumbs'][] = $this->title;
             ['history','id'=>$model->id],
             ['class'=>'btn btn-default',]) ?>
     </span>
+
+             <span class="btn pull-left"> <?= Html::a('Скачать PDF',
+            ['pdf2','id'=>$model->id],
+            ['class'=>'btn btn-success',]) ?>
+    </span>
     <br>
     <br>
     <br>
@@ -46,7 +51,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <h5><?= $model->f11 ?></h5>
         </div>
         <div class="col-lg-6">
-            <h5>Комментарий прокуратуры</h5>
+            <h5>Комментарий прокуратуры:</h5>
             <?= $model->f11_comment_proc  ?>
         </div>
     </div>
@@ -56,7 +61,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <h5><?= $model->f12 ?></h5>
         </div>
         <div class="col-lg-6">
-            <h5>Комментарий прокуратуры</h5>
+            <h5>Комментарий прокуратуры:</h5>
             <?= $model->f12_comment_proc ?>
         </div>
     </div>
@@ -66,7 +71,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <h5><?= $model->f131 ?></h5>
         </div>
         <div class="col-lg-6">
-            <h5>Комментарий прокуратуры</h5>
+            <h5>Комментарий прокуратуры:</h5>
             <?= $model->f131_comment_proc  ?>
         </div>
     </div>
@@ -76,17 +81,17 @@ $this->params['breadcrumbs'][] = $this->title;
             <h5><?= $model->f132 ?></h5>
         </div>
         <div class="col-lg-6">
-            <h5>Комментарий прокуратуры</h5>
+            <h5>Комментарий прокуратуры:</h5>
             <?= $model->f132_comment_proc ?>
         </div>
     </div>
     <div class="row">
-        <h4>2.1 наименование государственной услуги</h4>
+        <h4>2.1 наименование государственной услуги:</h4>
         <div class="col-lg-6">
             <h5><?= $model->f21 ?></h5>
         </div>
         <div class="col-lg-6">
-            <h5>Комментарий прокуратуры</h5>
+            <h5>Комментарий прокуратуры:</h5>
             <?= $model->f21_comment_proc  ?>
         </div>
     </div>
@@ -96,7 +101,7 @@ $this->params['breadcrumbs'][] = $this->title;
             <h5><?= $model->f22 ?></h5>
         </div>
         <div class="col-lg-6">
-            <h5>Комментарий прокуратуры</h5>
+            <h5>Комментарий прокуратуры:</h5>
             <?= $model->f22_comment_proc ?>
         </div>
     </div>
