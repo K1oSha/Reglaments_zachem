@@ -46,5 +46,14 @@ class UserLoginForm extends Model
         Yii::$app->user->login($userIdentity,
             $this->remember ? 3600 * 24 * 30 : 0);
     }
+    public function attributeLabels()
+    {
+        return
+            [
+                'email'=>'Email',
+                'password'=>'Пароль',
+                'remember'=>'Запомнить меня',
+            ];
+    }
 
 }

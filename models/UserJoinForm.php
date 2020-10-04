@@ -34,4 +34,14 @@ class UserJoinForm extends Model{
             if (UserRecord::existsEmail($this->email))
             $this->addError('email','This e-mail already exists');
         }
+    public function attributeLabels()
+    {
+        return
+            [
+                'name'=>'Имя',
+                'email'=>'Email',
+                'password'=>'Пароль',
+                'password2'=>'Повторите пароль',
+            ];
+    }
 }
