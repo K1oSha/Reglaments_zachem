@@ -1,4 +1,17 @@
 <?
+function sozdat_slag($stroka) {
+		
+    $rus=array('А','Б','В','Г','Д','Е','Ё','Ж','З','И','Й','К','Л','М','Н','О','П','Р','С','Т','У','Ф','Х','Ц','Ч','Ш','Щ','Ъ','Ы','Ь','Э','Ю','Я','а','б','в','г','д','е','ё','ж','з','и','й','к','л','м','н','о','п','р','с','т','у','ф','х','ц','ч','ш','щ','ъ','ы','ь','э','ю','я',' ');
+    
+    $lat=array('a','b','v','g','d','e','e','gh','z','i','y','k','l','m','n','o','p','r','s','t','u','f','h','c','ch','sh','sch','y','y','y','e','yu','ya','a','b','v','g','d','e','e','gh','z','i','y','k','l','m','n','o','p','r','s','t','u','f','h','c','ch','sh','sch','y','y','y','e','yu','ya',' ');
+  
+      $stroka = str_replace($rus, $lat, $stroka); // перевеодим на английский
+      $stroka = str_replace('-', '', $stroka); // удаляем все исходные "-"
+      $slag = preg_replace('/[^A-Za-z0-9-]+/', '-', $stroka); // заменяет все символы и пробелы на "-"
+  return $slag;
+}
+
+
 // create new PDF document
 $pdf = new TCPDF(PDF_PAGE_ORIENTATION, PDF_UNIT, PDF_PAGE_FORMAT, true, 'UTF-8', false);
 
@@ -82,8 +95,8 @@ $pdf->addEmptySignatureAppearance(180, 80, 15, 15);
 $certificado_crt = 'file://'. __DIR__ . "/tcpdf.crt";
 $certificado_key = 'file://'. __DIR__ . "/tcpdf.key";
 $pdf->setSignature($certificado_crt,$certificado_key, 'tcpdfdemo', '', 1);
-$content = $pdf->Output( "$model->message" . '.pdf', 'S');
-$file = fopen( "$model->message" . '.pdf', "w+");
+$content = $pdf->Output( sozdat_slag("$model->message") . '.pdf', 'S');
+$file = fopen( sozdat_slag("$model->message") . '.pdf', "w+");
 fwrite($file, $content);
 fclose($file);
-\Yii::$app->response->sendFile("$model->message" .".pdf");
+\Yii::$app->response->sendFile(sozdat_slag("$model->message") .".pdf");
