@@ -39,7 +39,7 @@ $this->params['breadcrumbs'][] = $this->title;
     </span>
 
              <span class="btn pull-left"> <?= Html::a('Скачать PDF',
-            ['pdf2','id'=>$model->id],
+            ['pdf','id'=>$model->id],
             ['class'=>'btn btn-success',]) ?>
     </span>
     <br>
